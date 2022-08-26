@@ -4,11 +4,11 @@ import { AppContextType } from '../@types/appTypes';
 export const AppContext = createContext<AppContextType | null>(null);
 
 export default function AppProvider({ children }: { children: ReactNode }) {
-	const [ auth, setAuth ] = useState(null);
-	const [ news, setNews ] = useState([]);
+	const [ auth ] = useState(null);
+	const [ news ] = useState([]);
 
 	const context = useMemo(() => ({
-		news,
+		news, auth,
 	}), [news]);
 
 	return (
