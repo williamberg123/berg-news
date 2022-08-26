@@ -1,7 +1,7 @@
-import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
-import { getDocs, collection } from 'firebase/firestore';
+import { createContext, ReactNode, useMemo, useState } from 'react';
+// import { getDocs, collection } from 'firebase/firestore';
 import { AppContextType } from '../@types/appTypes';
-import { auth, db } from '../data/Firebase';
+// import { auth, db } from '../data/Firebase';
 
 export const AppContext = createContext<AppContextType | null>(null);
 
@@ -9,7 +9,7 @@ export default function AppProvider({ children }: { children: ReactNode }) {
 	const [ news ] = useState([]);
 
 	const context = useMemo(() => ({
-		news, auth,
+		news,
 	}), [news]);
 
 	// const getInfo = async () => {
