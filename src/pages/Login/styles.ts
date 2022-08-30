@@ -24,6 +24,7 @@ export const Container = styled.div`
 		border-radius: 10px;
 		color: white;
 		font-weight: normal;
+		animation: toemergeright 1s ease;
 
 		& > span {
 			text-align: center;
@@ -39,6 +40,18 @@ export const Container = styled.div`
 
 			&:hover {
 				text-decoration: underline;
+			}
+		}
+
+		@keyframes toemergeright {
+			0% {
+				opacity: 0%;
+				transform: translateX(50px);
+			}
+
+			100% {
+				opacity: 100%;
+				transform: translateX(0px);
 			}
 		}
 	}
@@ -76,6 +89,7 @@ export const Title = styled.span`
 	font-weight: lighter;
 	text-transform: uppercase;
 	text-align: left;
+	animation: toemerge 1s ease;
 
 	@media (max-width: 1100px) {
 		font-size: 2rem;
@@ -86,6 +100,18 @@ export const Title = styled.span`
 
 	@media (max-width: 700px) {
 		font-size: 1.3rem;
+	}
+
+	@keyframes toemerge {
+		0% {
+			opacity: 0%;
+			transform: translateX(-50px);
+		}
+
+		100% {
+			opacity: 100%;
+			transform: translateX(0px);
+		}
 	}
 `;
 
@@ -105,5 +131,13 @@ export const Input = styled.input`
 		color: ${({ theme }) => theme.colors.pink};
 		font-weight: bold;
 		cursor: pointer;
+		transition: 0.3s;
+		border: 1px solid transparent;
+	}
+
+	&[type="submit"]:hover {
+		background-color: ${({ theme }) => theme.colors.darkPurple};
+		color: white;
+		border: 1px solid white;
 	}
 `;

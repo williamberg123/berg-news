@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { UserType } from './user';
 
-export interface AuthTProviderProps {
+export interface AuthProviderProps {
 	children: ReactNode;
 }
 

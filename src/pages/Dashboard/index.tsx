@@ -1,13 +1,14 @@
 import { Outlet } from 'react-router-dom';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 import * as Styled from './styles';
 
 export default function Dashboard() {
 	return (
 		<Styled.Container>
-			<header>header</header>
-			<h1>Dashboard</h1>
+			<Header />
 			<Outlet />
-			<footer>rodapé</footer>
+			<Footer />
 		</Styled.Container>
 	);
 }

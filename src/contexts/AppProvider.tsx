@@ -7,10 +7,13 @@ export const AppContext = createContext<AppContextType | null>(null);
 
 export default function AppProvider({ children }: { children: ReactNode }) {
 	const [ news ] = useState([]);
+	const [ page, setPage ] = useState<string | null>(null);
+
+	const setActuallyPage = (pageName: string | null) => setPage(pageName);
 
 	const context = useMemo(() => ({
-		news,
-	}), [news]);
+		news, page, setActuallyPage,
+	}), [news, page]);
 
 	// const getInfo = async () => {
 	// 	const docs = await getDocs(collection(db, 'example'));
