@@ -1,6 +1,7 @@
+import { User } from 'firebase/auth';
 import * as types from './types';
 
-export const reducer = (state, action) => {
+export const reducer = (state: User | null, action: { type: string, payload?: User }) => {
 	switch (action.type) {
 		case types.LOGIN: {
 			sessionStorage.setItem('user', JSON.stringify(action.payload));
