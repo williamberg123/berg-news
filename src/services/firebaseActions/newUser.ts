@@ -1,8 +1,8 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { UserLoginType } from '../../@types/user';
+import { FieldValues } from 'react-hook-form';
 import { auth } from '../../data/Firebase';
 
-export const registerNewUser = async (userData: UserLoginType) => {
+export const registerNewUser = async (userData: FieldValues) => {
 	try {
 		const { user_email, user_password } = userData;
 		await createUserWithEmailAndPassword(auth, user_email, user_password);

@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 
 import { AppContextType } from '../../@types/appTypes';
 import Form from '../../components/Form';
@@ -16,6 +16,14 @@ export default function Login() {
 	const { setActuallyPage } = useContext(AppContext) as AppContextType;
 	const { handleSubmit, register } = useForm();
 
+	const onSubmit = async (userData: FieldValues) => {
+		if (isLogin) {
+			await loginUser(userData);
+			return;
+		}
+		await registerNewUser(userData);
+	};
+
 	setActuallyPage(null);
 
 	return (
@@ -26,7 +34,7 @@ export default function Login() {
 			<div>
 				<Styled.Title>Venha fazer parte dessa rede de acesso à informação</Styled.Title>
 
-				<Form submitFunc={handleSubmit(isLogin ? loginUser : registerNewUser)}>
+				<Form submitFunc={handleSubmit(onSubmit)}>
 					<span>
 						{
 							isLogin ? 'Login' : 'Criar conta'

@@ -12,6 +12,8 @@ const firebaseConfig = {
 	appId: import.meta.env.VITE_APP_ID,
 };
 
+self.FIREBASE_APPCHECK_DEBUG_TOKEN = 'F6F1A0AB-3841-4AEF-89A8-51E1E8BDA9C8';
+
 export const app = initializeApp(firebaseConfig);
 
 // eslint-disable-next-line

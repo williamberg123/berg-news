@@ -19,6 +19,7 @@ export const FirstSection = styled.section`
 		border-radius: 5px;
 		border: none;
 		margin: 5px 0;
+		font-size: 0.8rem;
 	}
 
 	& input[type="submit"] {
@@ -77,12 +78,35 @@ export const Label = styled.label`
 	font-size: 1.3rem;
 `;
 
-export const NewsSection = styled.section`
+export const NewsSection = styled.section<{ hasNews: boolean }>`
 	display: flex;
 	padding: 20px;
-	overflow-x: hidden;
 
-	& div {
+	${({ hasNews }) => hasNews && 'overflow-x: scroll;'}
+
+	& > span {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+		font-size: 1.7rem;
+		text-transform: lowercase;
+		font-variant: small-caps;
+
+		& svg {
+			width: 200px;
+			height: 200px;
+		}
+	}
+
+	& > svg {
+		margin: 0 auto;
+		color: white;
+		width: 100px;
+		height: 100px;
+	}
+
+	& > div {
 		aspect-ratio: 1/1;
 		width: 400px;
 		height: 400px;
