@@ -10,7 +10,7 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider = ({ children }: AuthProviderProps) => {
 	const [ user, userDispatch ] = useReducer(reducer, null, () => {
 		const loggedInUser = JSON.parse(sessionStorage.getItem('user') || 'null');
-		if (loggedInUser) return loggedInUser;
+		return loggedInUser;
 	});
 
 	const userActions = buildActions(userDispatch);

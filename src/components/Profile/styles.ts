@@ -10,4 +10,5 @@ export const Container = styled.div`
 	background-color: ${({ theme }) => theme.colors.pink};
 	color: white;
 	font-weight: bold;
+	font-variant: small-caps;
 `;

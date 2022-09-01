@@ -5,11 +5,10 @@ import * as Styled from './styles';
 
 export default function Profile() {
 	const { user } = useContext(AuthContext) as AuthContextType;
-	const firstLetter = user?.email[0] || '';
 
 	return (
 		<Styled.Container>
-			{firstLetter}
+			{user?.email[0]}
 		</Styled.Container>
 	);
 }

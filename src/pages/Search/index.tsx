@@ -21,7 +21,9 @@ export default function Search() {
 	const onSubmit = async (data: FieldValues) => {
 		setIsLoading(true);
 		setNews([]);
-		const theNews = await getNews(data.keyword);
+
+		const theNews = await getNews(data);
+
 		setNews(theNews);
 		setIsLoading(false);
 	};
@@ -43,6 +45,14 @@ export default function Search() {
 						<input { ...register('keyword', { required: true }) } type="text" placeholder="digite a palavra-chave" />
 					</Styled.Label>
 
+					<span>
+						Entre o dia<Styled.DateInput {...register('initial_date', { required: true })} type="date" />
+					</span>
+
+					<span>
+						e o dia <Styled.DateInput {...register('final_date', { required: true })} type="date" />
+					</span>
+
 					<input type="submit" value="Buscar" />
 				</Form>
 			</Styled.FirstSection>
@@ -57,7 +67,7 @@ export default function Search() {
 				<RenderIf isTrue={ !news.length && !isLoading }>
 					<span>
 						<GiNewspaper />
-						<p>Não há notícias</p>
+						<p>Nenhuma notícia</p>
 					</span>
 				</RenderIf>
 

@@ -1,15 +1,18 @@
+import { FaSave } from 'react-icons/fa';
 import { NewsType } from '../../@types/news';
 import * as Styled from './styles';
 
 export default function News(props: NewsType) {
 	const { title, description, url, urlToImage, author, publishedAt } = props;
 
-	const publisedDate = new Date(publishedAt).toLocaleDateString('pt-BR', {
+	const publishedDate = new Date(publishedAt).toLocaleDateString('pt-BR', {
 		formatMatcher: 'best fit',
 	});
-	const publisedTime = new Date(publishedAt).toLocaleTimeString('pt-BR', {
+	const publishedTime = new Date(publishedAt).toLocaleTimeString('pt-BR', {
 		timeStyle: 'short',
 	});
+
+	const today = new Date().toLocaleDateString();
 
 	return (
 		<Styled.Container>
@@ -21,7 +24,7 @@ export default function News(props: NewsType) {
 				</Styled.NewsAuthor>
 
 				<Styled.NewsDate>
-					{`${publisedDate} às ${publisedTime}`}
+					{`${publishedDate === today ? 'Hoje' : publishedDate} às ${publishedTime}`}
 				</Styled.NewsDate>
 			</Styled.NewsInfo>
 
@@ -35,6 +38,8 @@ export default function News(props: NewsType) {
 				</Styled.HoverElement>
 				<Styled.NewsImage src={urlToImage} alt={title} />
 			</Styled.NewsLink>
+
+			<FaSave />
 
 		</Styled.Container>
 	);

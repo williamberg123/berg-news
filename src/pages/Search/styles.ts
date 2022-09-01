@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
 `;
 
 export const FirstSection = styled.section`
@@ -12,9 +11,19 @@ export const FirstSection = styled.section`
 
 	& form {
 		animation: toemergeright 1s ease;
+
+		& > span {
+			display: flex;
+			margin: 5px 0;
+			align-items: center;
+
+			& input {
+				margin-left: 10px;
+			}
+		}
 	}
 
-	& input {
+	& input:not([type="date"]) {
 		padding: 15px 20px;
 		border-radius: 5px;
 		border: none;
@@ -66,6 +75,14 @@ export const Title = styled.span`
 			transform: translateX(0px);
 		}
 	}
+`;
+
+export const DateInput = styled.input`
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	margin: 5px 0;
+	font-size: 0.8rem;
 `;
 
 export const Label = styled.label`
