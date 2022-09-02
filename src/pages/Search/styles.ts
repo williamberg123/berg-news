@@ -10,6 +10,9 @@ export const FirstSection = styled.section`
 	padding: 100px 20px;
 
 	& form {
+		width: 400px;
+		display: flex;
+		flex-direction: column;
 		animation: toemergeright 1s ease;
 
 		& > span {
@@ -50,6 +53,17 @@ export const FirstSection = styled.section`
 			transform: translateX(0px);
 		}
 	}
+
+	@media (max-width: 800px) {
+		justify-content: center;
+		padding-bottom: 50px;
+	}
+
+	@media (max-width: 450px) {
+		& form {
+			width: 100%;
+		}
+	}
 `;
 
 export const Title = styled.span`
@@ -86,13 +100,19 @@ export const DateInput = styled.input`
 `;
 
 export const Label = styled.label`
-	width: 400px;
 	display: flex;
 	flex-direction: column;
 	color: ${({ theme }) => theme.colors.pink};
 	font-variant: small-caps;
 	font-weight: bold;
 	font-size: 1.3rem;
+`;
+
+export const NewsTitle = styled.span`
+	display: flex;
+	margin: 10px 20px;
+	text-transform: uppercase;
+	font-weight: bold;
 `;
 
 export const NewsSection = styled.section<{ hasNews: boolean }>`
@@ -123,12 +143,14 @@ export const NewsSection = styled.section<{ hasNews: boolean }>`
 		height: 100px;
 	}
 
-	& > div {
-		aspect-ratio: 1/1;
-		width: 400px;
-		height: 400px;
-		background-color: white;
-		border-radius: 10px;
-		margin-right: 20px;
+	@media (max-width: 800px) {
+		padding-top: 0;
+
+		& > span {
+			& svg {
+				width: 100px;
+				height: 100px;
+			}
+		}
 	}
 `;

@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from 'firebase/auth';
-import { createContext, useEffect, useMemo, useReducer } from 'react';
+import { createContext, useCallback, useEffect, useMemo, useReducer } from 'react';
 import { AuthContextType, AuthProviderProps } from '../../@types/authType';
 import { auth } from '../../data/Firebase';
 import { buildActions } from './buildActions';
@@ -15,18 +15,31 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
 	const userActions = buildActions(userDispatch);
 
+	const signOutUser = useCallback(() => {
+		auth.signOut();
+		userActions.logout();
+	}, [auth]);
+
 	useEffect(() => {
 		onAuthStateChanged(auth, (userInfo) => {
 			if (!userInfo) {
-				userActions.logout();
+				signOutUser();
 				return;
 			}
 			userActions.login(userInfo);
 		});
 	}, [auth]);
 
+	useEffect(() => {
+		window.addEventListener('unload', signOutUser);
+
+		return () => {
+			window.removeEventListener('unload', signOutUser);
+		};
+	}, []);
+
 	const context = useMemo(() => ({
-		user,
+		user, signOutUser,
 	}), [user]);
 
 	return (

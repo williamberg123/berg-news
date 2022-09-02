@@ -8,6 +8,6 @@ export const loginUser = async (userData: FieldValues) => {
 		await signInWithEmailAndPassword(auth, user_email, user_password);
 		window.location.assign('/');
 	} catch (error) {
-		alert('Algo deu errado! :(');
+		alert('Usuário ou senha incorretos :(');
 	}
 };

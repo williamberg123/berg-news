@@ -1,5 +1,5 @@
-import { FaSave } from 'react-icons/fa';
 import { NewsType } from '../../@types/news';
+import SaveIcon from '../SaveIcon';
 import * as Styled from './styles';
 
 export default function News(props: NewsType) {
@@ -39,8 +39,7 @@ export default function News(props: NewsType) {
 				<Styled.NewsImage src={urlToImage} alt={title} />
 			</Styled.NewsLink>
 
-			<FaSave />
-
+			<SaveIcon />
 		</Styled.Container>
 	);
 }

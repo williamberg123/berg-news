@@ -55,4 +55,10 @@ export const Section = styled.section`
 			color: white;
 		}
 	}
+
+	@media (max-width: 700px) {
+		& span {
+			font-size: 1.2rem;
+		}
+	}
 `;

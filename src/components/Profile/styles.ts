@@ -11,4 +11,9 @@ export const Container = styled.div`
 	color: white;
 	font-weight: bold;
 	font-variant: small-caps;
+
+	@media (max-width: 600px) {
+		width: 35px;
+		height: 35px;
+	}
 `;

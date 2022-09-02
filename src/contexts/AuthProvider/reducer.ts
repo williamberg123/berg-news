@@ -10,6 +10,7 @@ export const reducer = (state: User | null, action: { type: string, payload?: Us
 
 		case types.LOGOUT: {
 			sessionStorage.removeItem('user');
+			return null;
 		}
 	}
 };
