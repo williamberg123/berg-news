@@ -91,14 +91,6 @@ export const Title = styled.span`
 	}
 `;
 
-export const DateInput = styled.input`
-	padding: 10px;
-	border-radius: 5px;
-	border: none;
-	margin: 5px 0;
-	font-size: 0.8rem;
-`;
-
 export const Label = styled.label`
 	display: flex;
 	flex-direction: column;
@@ -117,7 +109,7 @@ export const NewsTitle = styled.span`
 
 export const NewsSection = styled.section<{ hasNews: boolean }>`
 	display: flex;
-	padding: 20px;
+	padding: 20px 20px 100px;
 
 	${({ hasNews }) => hasNews && 'overflow-x: scroll;'}
 

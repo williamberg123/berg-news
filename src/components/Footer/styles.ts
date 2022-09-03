@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const Footer = styled.footer`
+	width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 30px;
+	position: absolute;
+	bottom: 0;
 `;
 
 export const Span = styled.span`

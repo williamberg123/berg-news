@@ -19,7 +19,7 @@ export const AppRoutes = () => {
 				<Route path="/search" element={ <Search /> } />
 				<Route path="/saved" element={ <Saved /> } />
 			</Route>
-			<Route path="/login" element={ !user ? <Login /> : <Navigate to="/" /> } />
+			<Route path="/login" element={ !user ? <Login /> : <Navigate to="/" replace /> } />
 			<Route path="*" element={ <NotFound /> } />
 		</Routes>
 	);

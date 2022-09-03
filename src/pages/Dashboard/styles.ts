@@ -5,4 +5,5 @@ export const Container = styled.div`
 	min-height: 100vh;
 	background-color: ${({ theme }) => theme.colors.darkPurple};
 	color: white;
+	position: relative;
 `;

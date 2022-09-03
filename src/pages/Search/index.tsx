@@ -5,6 +5,7 @@ import { RotatingLines } from 'react-loader-spinner';
 
 import { AppContextType } from '../../@types/appTypes';
 import { NewsType } from '../../@types/news';
+import DateSelection from '../../components/DateSelection';
 import Form from '../../components/Form';
 import News from '../../components/News';
 import RenderIf from '../../components/RenderIf';
@@ -22,6 +23,11 @@ export default function Search() {
 	const isLessThan800 = useMediaQuery('(max-width: 800px)');
 
 	const onSubmit = async (data: FieldValues) => {
+		if (data.date_selection === 'invalid') {
+			alert('Escolha uma data de publicação das notícias');
+			return;
+		}
+
 		setIsLoading(true);
 		setNews(null);
 
@@ -53,13 +59,10 @@ export default function Search() {
 						<input {...register('keyword', { required: true })} type="text" placeholder="digite a palavra-chave" />
 					</Styled.Label>
 
-					<span>
-						Entre o dia<Styled.DateInput {...register('initial_date', { required: true })} type="date" />
-					</span>
-
-					<span>
-						e o dia <Styled.DateInput {...register('final_date', { required: true })} type="date" />
-					</span>
+					<Styled.Label>
+						data de publicação
+						<DateSelection formRegister={register('date_selection', { required: true })} />
+					</Styled.Label>
 
 					<input type="submit" value="Buscar" />
 				</Form>
