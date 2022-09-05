@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+	& > div {
+		padding-bottom: 100px;
+	}
 `;
 
 export const FirstSection = styled.section`
@@ -109,7 +112,7 @@ export const NewsTitle = styled.span`
 
 export const NewsSection = styled.section<{ hasNews: boolean }>`
 	display: flex;
-	padding: 20px 20px 100px;
+	padding: 20px;
 
 	${({ hasNews }) => hasNews && 'overflow-x: scroll;'}
 

@@ -72,24 +72,26 @@ export default function Search() {
 				<Styled.NewsTitle>Notícias</Styled.NewsTitle>
 			</RenderIf>
 
-			<Styled.NewsSection hasNews={!!news?.length}>
-				<RenderIf isTrue={!!news?.length}>
-					{
-						news?.map((oneNews: NewsType, index: number) => <News key={`news-${index}`} {...oneNews} />)
-					}
-				</RenderIf>
+			<div>
+				<Styled.NewsSection hasNews={!!news?.length}>
+					<RenderIf isTrue={!!news?.length}>
+						{
+							news?.map((oneNews: NewsType, index: number) => <News key={`news-${index}`} {...oneNews} />)
+						}
+					</RenderIf>
 
-				<RenderIf isTrue={!news?.length && !isLoading}>
-					<span>
-						<GiNewspaper />
-						<p>Nenhuma notícia</p>
-					</span>
-				</RenderIf>
+					<RenderIf isTrue={!news?.length && !isLoading}>
+						<span>
+							<GiNewspaper />
+							<p>Nenhuma notícia</p>
+						</span>
+					</RenderIf>
 
-				<RenderIf isTrue={isLoading}>
-					<RotatingLines />
-				</RenderIf>
-			</Styled.NewsSection>
+					<RenderIf isTrue={isLoading}>
+						<RotatingLines />
+					</RenderIf>
+				</Styled.NewsSection>
+			</div>
 		</Styled.Container>
 	);
 }
