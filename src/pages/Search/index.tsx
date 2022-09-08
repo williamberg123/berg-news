@@ -88,7 +88,7 @@ export default function Search() {
 					</RenderIf>
 
 					<RenderIf isTrue={isLoading}>
-						<RotatingLines />
+						<RotatingLines width="50" strokeColor="white" strokeWidth="2" />
 					</RenderIf>
 				</Styled.NewsSection>
 			</div>

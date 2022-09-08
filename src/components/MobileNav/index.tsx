@@ -5,11 +5,11 @@ import { MobileNavProps } from '../../@types/mobileNav';
 import { AppContext } from '../../contexts/AppProvider';
 import * as Styled from './styles';
 
-export default function MobileNav({ toggleMobileMenu }: MobileNavProps) {
+export default function MobileNav({ toggleMobileMenu, mustBeOpen, isFirstRender }: MobileNavProps) {
 	const { page } = useContext(AppContext) as AppContextType;
 
 	return (
-		<Styled.Container>
+		<Styled.Container isFirstRender={isFirstRender} mustBeOpen={ mustBeOpen }>
 			<Styled.Ul>
 				<Styled.Li>
 					<Link onClick={toggleMobileMenu} className={ page == 'home' ? 'page' : '' } to="/">Home</Link>

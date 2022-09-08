@@ -1,9 +1,9 @@
 import { DocumentData } from 'firebase/firestore';
-import SaveButton from '../SaveButton';
+import UnSaveButton from '../UnSaveButton';
 import * as Styled from './styles';
 
-export default function News(props: DocumentData) {
-	const { title, description, url, urlToImage, author, publishedAt } = props;
+export default function SavedNews(props: DocumentData) {
+	const { title, description, url, urlToImage, author, publishedAt, removeOneNews, docId } = props;
 
 	const publishedDate = new Date(publishedAt).toLocaleDateString('pt-BR', {
 		formatMatcher: 'best fit',
@@ -43,7 +43,7 @@ export default function News(props: DocumentData) {
 				<Styled.NewsImage onError={setImageUrl} src={urlToImage} alt={title} />
 			</Styled.NewsLink>
 
-			<SaveButton {...props} />
+			<UnSaveButton removeOneNews={removeOneNews} {...props} docId={docId} />
 		</Styled.Container>
 	);
 }

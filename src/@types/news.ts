@@ -5,5 +5,6 @@ export interface NewsType {
 	content: string;
 	url: string;
 	urlToImage: string;
-	publishedAt: string;
+	publishedAt: string | number | Date;
+	docId?: string;
 }

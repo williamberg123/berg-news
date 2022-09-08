@@ -10,10 +10,12 @@ export const Container = styled.div`
 	top: 0;
 	background-color: ${({ theme }) => theme.colors.darkPurple};
 	border-bottom: 1px solid white;
+	z-index: 5;
 
 	& > div {
 		display: flex;
 		align-items: center;
+		z-index: 2;
 
 		& > svg {
 			width: 30px;

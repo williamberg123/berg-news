@@ -5,6 +5,7 @@ export const Span = styled.span`
 	font-weight: bold;
 	font-variant: small-caps;
 	text-transform: uppercase;
+	z-index: 2;
 
 	& .pink {
 		color: ${({ theme }) => theme.colors.pink};

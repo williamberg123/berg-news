@@ -1,10 +1,43 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.nav`
+export const Container = styled.nav<{ mustBeOpen: boolean, isFirstRender: boolean }>`
 	width: 100%;
 	position: absolute;
 	bottom: -1px;
-	left: 0;
+	left: 100%;
+
+	${({ mustBeOpen, isFirstRender }) => {
+		return mustBeOpen
+		? css`
+			animation: toemerge 0.3s ease;
+			left: 0;
+		`
+		: (
+			!isFirstRender && css`
+			animation: toexit 0.3s ease;
+			left: 100%;
+		`);
+	}}
+
+	@keyframes toemerge {
+		0% {
+			left: 100%;
+		}
+
+		100% {
+			left: 0;
+		}
+	}
+
+	@keyframes toexit {
+		0% {
+			left: 0;
+		}
+
+		100% {
+			left: 100%;
+		}
+	}
 `;
 
 export const Ul = styled.ul`
@@ -15,7 +48,8 @@ export const Ul = styled.ul`
 	align-items: center;
 	list-style: none;
 	position: absolute;
-	background-color: black;
+	background-color: ${({ theme }) => theme.colors.darkPurple};
+	z-index: 1;
 
 	& a {
 		text-decoration: none;

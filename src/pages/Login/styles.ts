@@ -136,7 +136,7 @@ export const Input = styled.input`
 	}
 
 	&[type="submit"]:hover {
-		background-color: ${({ theme }) => theme.colors.darkPurple};
+		background-color: ${({ theme }) => theme.colors.pink};
 		color: white;
 		border: 1px solid white;
 	}
