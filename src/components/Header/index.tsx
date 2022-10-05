@@ -6,7 +6,7 @@ import Logo from '../Logo';
 import MobileNav from '../MobileNav';
 import NavBar from '../NavBar';
 import Profile from '../Profile';
-import * as Styled from './styles';
+import { Container } from './styles';
 
 export default function Header() {
 	const [ isMobileMenuOpen, setIsMobileMenuOpen ] = useState(false);
@@ -23,7 +23,7 @@ export default function Header() {
 	}, [isMobile]);
 
 	return (
-		<Styled.Container>
+		<Container>
 			<Logo />
 
 			{
@@ -39,6 +39,6 @@ export default function Header() {
 
 			<MobileNav isFirstRender={ isFirstRender.current } mustBeOpen={ isMobile && isMobileMenuOpen } toggleMobileMenu={toggleMobileMenu} />
 
-		</Styled.Container>
+		</Container>
 	);
 }
